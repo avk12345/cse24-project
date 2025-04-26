@@ -5,6 +5,7 @@ using namespace std;
 
 Application::Application() {
     window = new Window(100, 100, 400, 400, "Paint Application");
+    cout << "Hello World!" << endl;
 
     window->show();
 }
