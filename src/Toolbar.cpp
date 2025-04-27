@@ -8,6 +8,7 @@ void Toolbar::deselectAllTools() {
     triangleButton->color(FL_BACKGROUND_COLOR);
     rectangleButton->color(FL_BACKGROUND_COLOR);
     undoButton->color(FL_BACKGROUND_COLOR);
+    mouseButton->color(FL_BACKGROUND_COLOR);
 }
 
 void Toolbar::visualizeSelectedTool() {
@@ -22,6 +23,9 @@ void Toolbar::visualizeSelectedTool() {
     }
     else if (tool == TRIANGLE) {
         triangleButton->color(FL_WHITE);
+    }
+    else if (tool == RECTANGLE) {
+        rectangleButton->color(FL_WHITE);
     }
     else if (tool == RECTANGLE) {
         rectangleButton->color(FL_WHITE);
@@ -54,6 +58,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == clearButton) {
         action = CLEAR;
     }
+    else if (sender == mouseButton) {
+        action = SELECT;
+    }
 
     if (onChangeCb) {
         onChangeCb(this);
@@ -83,6 +90,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     minusButton = new Image(x, y + 500, 50, 50, "./assets/minus.png");
     frontBackButton = new Image(x, y + 350, 50, 50, "./assets/send-to-back.png");
     backFrontButton = new Image(x, y + 400, 50, 50, "./assets/bring-to-front.png");
+    mouseButton = new Image(x, y + 400, 50, 50, "./assets/mouse.png");
 
     tool = PENCIL;
     action = NONE;
