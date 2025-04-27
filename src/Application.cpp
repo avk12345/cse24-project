@@ -1,14 +1,10 @@
 #include "Application.h"
-<<<<<<< HEAD
 #include "Enums.h"
 #include <bobcat_ui/bobcat_ui.h>
-=======
->>>>>>> 62e4350 (initial commit)
 
 using namespace bobcat;
 using namespace std;
 
-<<<<<<< HEAD
 void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) {
     TOOL tool = toolbar->getTool();
     Color color = colorSelector->getColor();
@@ -82,10 +78,5 @@ Application::Application() {
     ON_DRAG(canvas, Application::onCanvasDrag);
     ON_CHANGE(toolbar, Application::onToolbarChange);
     ON_MOUSE_UP(canvas, Application::onCanvasMouseUp);
-=======
-Application::Application() {
-    window = new Window(100, 100, 400, 400, "Pain Application");
-
->>>>>>> 62e4350 (initial commit)
     window->show();
 }
