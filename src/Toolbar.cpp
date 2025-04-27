@@ -106,6 +106,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     minusButton->box(FL_BORDER_BOX);
     frontBackButton->box(FL_BORDER_BOX);
     backFrontButton->box(FL_BORDER_BOX);
+    mouseButton->box(FL_BORDER_BOX);
 
     visualizeSelectedTool();
 
@@ -116,4 +117,5 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(rectangleButton, Toolbar::onClick);
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
+    ON_CLICK(mouseButton, Toolbar::onClick);
 }
