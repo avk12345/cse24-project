@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 bin
 objects
+=======
+objects/
+bin/
+>>>>>>> 62e4350 (initial commit)
