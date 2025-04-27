@@ -11,11 +11,11 @@ Rectangle::Rectangle() {
     b = 0.0;
 }
 
-Rectangle::Rectangle(float x, float y, float r, float g, float b) {
+Rectangle::Rectangle(float x, float y, float width, float height, float r, float g, float b) {
     this->x = x;
     this->y = y;
-    width = 0.4;
-    height = 0.4;
+    this->width = width;
+    this->height = height;
     this->r = r;
     this->g = g;
     this->b = b;
