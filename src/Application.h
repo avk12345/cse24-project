@@ -2,6 +2,7 @@
 #define APPLICATION_H
 
 #include <bobcat_ui/all.h>
+<<<<<<< HEAD
 #include "Toolbar.h"
 #include "Canvas.h"
 #include "ColorSelector.h"
@@ -17,6 +18,11 @@ class Application : public bobcat::Application_ {
     void onToolbarChange(bobcat::Widget* sender);
     void onCanvasMouseUp(bobcat::Widget* sender, float mx, float my);
     
+=======
+
+class Application : public bobcat::Application_ {
+    bobcat::Window* window;
+>>>>>>> 62e4350 (initial commit)
 
 public:
     Application();
