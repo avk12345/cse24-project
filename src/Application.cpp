@@ -1,5 +1,6 @@
 #include "Application.h"
 
+
 using namespace bobcat;
 using namespace std;
 
@@ -61,10 +62,10 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(25, 75, 400, 600, "Paint Application Shapes");
+    window = new Window(25, 75, 600, 600, "Paint Application Shapes");
 
     toolbar = new Toolbar(0, 0, 50, 550);
-    canvas = new Canvas(50, 0, 350, 550);
+    canvas = new Canvas(50, 0, 600, 550);
     colorSelector = new ColorSelector(50, 550, 350, 50);
 
     window->add(toolbar);

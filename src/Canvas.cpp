@@ -1,107 +1,75 @@
 #include "Canvas.h"
-#include "Enums.h"
+#include "Circle.h"
+#include "Triangle.h"
+#include "Scribble.h"
+#include "Polygon.h"
 #include <GL/freeglut.h>
+#include <cstdlib>
 
 Canvas::Canvas(int x, int y, int w, int h) : Canvas_(x, y, w, h) {
-    // 
+    curr = nullptr;
 }
 
 void Canvas::addPoint(float x, float y, float r, float g, float b, int size) {
-    points.push_back(new Point(x, y, r, g, b, size));
-    shapes.push_back(PENCIL);
+    shapes.push_back(new Point(x, y, r, g, b, size));
 }
 
 void Canvas::addCircle(float x, float y, float radius, float r, float g, float b) {
-    circles.push_back(new Circle(x, y, radius, r, g, b));
-    shapes.push_back(CIRCLE);
+    shapes.push_back(new Circle(x, y, radius, r, g, b));
 }
 
 void Canvas::addTriangle(float x, float y, float base, float height, float r, float g, float b) {
-    triangles.push_back(new Triangle(x, y, base, height, r, g, b));
-    shapes.push_back(TRIANGLE);
+    shapes.push_back(new Triangle(x, y, base, height, r, g, b));
 }
 
 void Canvas::addRectangle(float x, float y, float width, float height, float r, float g, float b) {
-    rectangles.push_back(new Rectangle(x, y, width, height, r, g, b));
-    shapes.push_back(RECTANGLE);
+    shapes.push_back(new Rectangle(x, y, width, height, r, g, b));
+    
 }
 
 void Canvas::addPolygon(float x, float y, int sides, float length, float r, float g, float b) {
-    polygons.push_back(new Polygon(x, y, sides, length, r, g, b));
-    shapes.push_back(POLYGON);
+    shapes.push_back(new Polygon(x, y, sides, length, r, g, b));
 }
 
-void Canvas::undo() {
-    if(shapes.empty()) {
-        return;
-    }
 
-    TOOL shapeType = shapes.back();
-
-    if(shapeType == PENCIL || shapeType == ERASER) {
-        if(!points.empty()) {
-            points.pop_back();  
-        }
-    } else if(shapeType == CIRCLE) {
-        circles.pop_back();
-    } else if(shapeType == RECTANGLE) {
-        rectangles.pop_back();
-    } else if(shapeType == TRIANGLE) {
-        triangles.pop_back();
-    } else if(shapeType == POLYGON) {
-        polygons.pop_back();
-    }
-    shapes.pop_back();
-    redraw();
-}
 
 void Canvas::clear() {
-    for (unsigned int i = 0 ; i < points.size(); i++) {
-        delete points[i];
+    for (unsigned int i = 0 ; i < shapes.size(); i++) {
+        delete shapes[i];
     }
-    points.clear();
-
-    for (unsigned int i = 0 ; i < circles.size(); i++) {
-        delete circles[i];
-    }
-    circles.clear();
-
-    for (unsigned int i = 0 ; i < triangles.size(); i++) {
-        delete triangles[i];
-    }
-    triangles.clear();
-
-    for (unsigned int i = 0 ; i < rectangles.size(); i++) {
-        delete rectangles[i];
-    }
-    rectangles.clear();
-
-    for (unsigned int i = 0 ; i < polygons.size(); i++) {
-        delete polygons[i];
-    }
-    polygons.clear();
-    
     shapes.clear();
 }
 
+void Canvas::undo(){
+    if (shapes.size() > 0){
+        delete shapes[shapes.size() - 1];
+        shapes.pop_back();
+    }
+}
+
 void Canvas::render() {
-    for (unsigned int i = 0 ; i < points.size(); i++) {
-        points[i]->draw();
+    for (unsigned int i = 0 ; i < shapes.size(); i++) {
+        shapes[i]->draw();
     }
 
-    for (unsigned int i = 0 ; i < circles.size(); i++) {
-        circles[i]->draw();
+    if (curr){
+        curr->draw();
     }
+}
 
-    for (unsigned int i = 0 ; i < triangles.size(); i++) {
-        triangles[i]->draw();
+void Canvas::startScribble(){
+    curr = new Scribble();
+}
+
+void Canvas::updateScribble(float x, float y, float r, float g, float b, int size){
+    if (curr){
+        curr->addPoint(x, y, r, g, b, size);
     }
+}
 
-    for (unsigned int i = 0 ; i < rectangles.size(); i++) {
-        rectangles[i]->draw();
-    }
-
-    for (unsigned int i = 0 ; i < polygons.size(); i++) {
-        polygons[i]->draw();
+void Canvas::endScribble(){
+    if (curr){
+        shapes.push_back(curr);
+        curr = nullptr;
     }
 }
