@@ -6,9 +6,6 @@ Triangle::Triangle() {
     y = 0.0;
     base = 0.2;
     height = 0.2;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
 }
 
 Triangle::Triangle(float x, float y, float base, float height, float r, float g, float b) {
@@ -16,9 +13,7 @@ Triangle::Triangle(float x, float y, float base, float height, float r, float g,
     this->y = y;
     this->base = base;
     this->height = height;
-    this->r = r;
-    this->g = g;
-    this->b = b;
+    setColor(r, g, b);
 }
 
 void Triangle::draw() {

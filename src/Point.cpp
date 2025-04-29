@@ -7,9 +7,6 @@ using namespace std;
 Point::Point() {
     x = 0.0;
     y = 0.0;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
     size = 7;
 }
 
@@ -19,9 +16,7 @@ Point::Point(float x, float y) : Point() {
 }
 
 Point::Point(float x, float y, float r, float g, float b) : Point(x, y) {
-    this->r = r;
-    this->g = g;
-    this->b = b;
+    setColor(r,g,b);
 }
 
 Point::Point(float x, float y, float r, float g, float b, int size) : Point(x, y, r, g, b) {

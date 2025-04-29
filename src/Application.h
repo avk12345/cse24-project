@@ -20,6 +20,7 @@ class Application : public bobcat::Application_ {
     void onToolbarChange(bobcat::Widget* sender);
     void onCanvasMouseUp(bobcat::Widget* sender, float mx, float my);
     void onColorSelectorChange(bobcat::Widget* sender);
+    void pushToFront(bobcat::Widget* sender);
     
 
 public:

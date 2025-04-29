@@ -1,7 +1,6 @@
 #include "Application.h"
 #include <bobcat_ui/bobcat_ui.h>
 
-
 using namespace bobcat;
 using namespace std;
 
@@ -60,6 +59,7 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
 
 void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
+    TOOL tool = toolbar->getTool();
 
     if (action == CLEAR) {
         canvas->clear();
@@ -67,6 +67,9 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     }
     if (action == UNDO) {
         canvas->undo();
+        canvas->redraw();
+    } if (tool == PUSHFRONT && selectedShape) {
+        canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
     selectedShape = nullptr;
@@ -78,6 +81,13 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
     if (selectedShape && tool == MOUSE) {
         cout << "Update selected shape color" << endl;
         selectedShape->setColor(color.getR(), color.getG(), color.getB());
+        canvas->redraw();
+    }
+}
+
+void Application::pushToFront(bobcat::Widget* sender) {
+    if (selectedShape && tool == PUSHFRONT) {
+        canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
 }

@@ -7,9 +7,6 @@ Polygon::Polygon() {
     y = 0.0;
     sides = 5;
     length = 0.1;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
 }
 
 Polygon::Polygon(float x, float y, int sides, float length, float r, float g, float b) {
@@ -17,9 +14,7 @@ Polygon::Polygon(float x, float y, int sides, float length, float r, float g, fl
     this->y = y;
     this->sides = sides;
     this->length = length;
-    this->r = r;
-    this->g = g;
-    this->b = b;
+    setColor(r, g, b);
 }
 
 void Polygon::draw() {
