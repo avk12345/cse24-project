@@ -6,6 +6,8 @@
 #include <GL/freeglut.h>
 #include <cstdlib>
 
+using namespace std;
+
 Canvas::Canvas(int x, int y, int w, int h) : Canvas_(x, y, w, h) {
     curr = nullptr;
 }
@@ -95,14 +97,14 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
 
     for (unsigned int i = shapes.size() - 1; i >= 0; i--) {
         if (shapes[i]->contains(mx, my)) {
-            std::cout << "CLicked on shape[" << i << "]" << std::endl;
+            cout << "CLicked on shape[" << i << "]" << endl;
             selectedShape = shapes[i];
             break;
         }
     }
 
     if (selectedShape == nullptr) {
-        std::cout << "No selected shape" << std::endl;
+        cout << "No selected shape" << endl;
     }
 
     return selectedShape;
