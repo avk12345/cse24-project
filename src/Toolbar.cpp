@@ -1,5 +1,6 @@
 #include "Toolbar.h"
 #include <FL/Enumerations.H>
+
 using namespace bobcat;
 
 void Toolbar::deselectAllTools() {
@@ -28,7 +29,7 @@ void Toolbar::visualizeSelectedTool() {
     else if (tool == RECTANGLE) {
         rectangleButton->color(FL_WHITE);
     }
-    else if (tool == RECTANGLE) {
+    else if (tool == POLYGON) {
         rectangleButton->color(FL_WHITE);
     }
     else if (tool == MOUSE) {

@@ -69,6 +69,7 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->undo();
         canvas->redraw();
     }
+    selectedShape = nullptr;
 }
 
 void Application::onColorSelectorChange(bobcat::Widget* sender) {
