@@ -43,7 +43,7 @@ public:
 
     void render();
 
-    void bringToFront();
+    void bringToFront(Shape* shape);
     
     void pushToBack();
 
