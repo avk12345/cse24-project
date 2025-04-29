@@ -1,4 +1,5 @@
 #include "Toolbar.h"
+#include "Enums.h"
 #include <FL/Enumerations.H>
 
 using namespace bobcat;
@@ -34,7 +35,7 @@ void Toolbar::visualizeSelectedTool() {
     }
     else if (tool == MOUSE) {
         mouseButton->color(FL_WHITE);
-    }
+    } 
 }
 
 void Toolbar::onClick(bobcat::Widget* sender) {
@@ -65,6 +66,11 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     }
     else if (sender == mouseButton) {
         tool = MOUSE;
+    }
+    else if(sender == minusButton) {
+        action == DECREASE;
+    } else if(sender == plusButton) {
+        action == INCREASE;
     }
 
     if (onChangeCb) {
@@ -123,4 +129,6 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
     ON_CLICK(mouseButton, Toolbar::onClick);
+    ON_CLICK(plusButton, Toolbar::onClick);
+    ON_CLICK(minusButton, Toolbar::onClick);
 }

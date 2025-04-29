@@ -1,5 +1,8 @@
 #include "Canvas.h"
 #include "Circle.h"
+#include "Enums.h"
+#include "Rectangle.h"
+#include "Toolbar.h"
 #include "Triangle.h"
 #include "Scribble.h"
 #include "Polygon.h"
@@ -76,20 +79,26 @@ void Canvas::endScribble(){
     }
 }
 
-void bringToFront() {
+void Canvas::bringToFront() {
     //
 }
 
-void pushToBack() {
+void Canvas::pushToBack() {
     //
 }
 
-void moveShape() {
+void Canvas::moveShape() {
     //
 }
 
-void increaseSize() {
-    //
+void Canvas::changeSize(Shape* selectedShape) {
+    ACTION action = tool->getAction();
+    if(action == INCREASE) {
+        //
+    }
+    if(action == DECREASE) {
+        //
+    }
 }
 
 Shape* Canvas::getSelectedShape(float mx, float my) {

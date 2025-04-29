@@ -9,11 +9,14 @@
 #include "Circle.h"
 #include "Shape.h"
 #include "Scribble.h"
+#include "Toolbar.h"
 
 class Canvas : public bobcat::Canvas_ {
     std::vector<Shape*> shapes;
 
     Scribble* curr;
+
+    Toolbar* tool;
 
 public:
     Canvas(int x, int y, int w, int h);
@@ -46,7 +49,7 @@ public:
 
     void moveShape();
 
-    void increaseSize();
+    void changeSize(Shape* selectedShape);
 
     Shape* getSelectedShape(float mx, float my);
 };
