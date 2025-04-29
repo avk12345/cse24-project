@@ -64,7 +64,7 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
 Application::Application() {
     window = new Window(25, 75, 600, 600, "Paint Application Shapes");
 
-    toolbar = new Toolbar(0, 0, 50, 550);
+    toolbar = new Toolbar(0, 0, 50, 600);
     canvas = new Canvas(50, 0, 600, 550);
     colorSelector = new ColorSelector(50, 550, 350, 50);
 

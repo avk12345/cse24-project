@@ -1,4 +1,4 @@
-DONE    10 points: paint brush tool (draw points as a scribble while mouse is down)     
+giDONE    10 points: paint brush tool (draw points as a scribble while mouse is down)     
 DONE    5 points: eraser tool (delete shape/scribble)                                   
 DONE    5 points: clear screen tool (delete all shapes/scribbles)
     10 points: RGB color picker
