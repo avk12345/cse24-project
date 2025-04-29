@@ -32,6 +32,10 @@ void Triangle::draw() {
 }
 
 bool Triangle::contains(float mx, float my) {
+    if(mx >= x - base/2 && my >= y - height/2 && mx <= x + base/2 && my <= y + height/2) {
+        return true;
+    }
+
     return false;
 }
 

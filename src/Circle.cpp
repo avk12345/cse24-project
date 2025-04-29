@@ -2,6 +2,9 @@
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 #include <cmath>
+#include <iostream>
+
+using namespace std;
 
 Circle::Circle() {
     x = 0.0;
@@ -36,6 +39,7 @@ bool Circle::contains(float mx, float my) {
     if(mx >= x - radius && my >= y - radius && mx <= x + radius && my <= y + radius) {
         return true;
     }
+
     return false;
 }
 
