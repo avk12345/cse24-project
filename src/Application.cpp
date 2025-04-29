@@ -98,5 +98,6 @@ Application::Application() {
     ON_DRAG(canvas, Application::onCanvasDrag);
     ON_CHANGE(toolbar, Application::onToolbarChange);
     ON_MOUSE_UP(canvas, Application::onCanvasMouseUp);
+    ON_CHANGE(colorSelector, Application::onColorSelectorChange);
     window->show();
 }
