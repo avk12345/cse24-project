@@ -65,6 +65,6 @@ void Point::setColor(float r, float g, float b) {
     this->b = b;
 }
 
-string getSelectedShape() {
+string Point::getSelectedShape() {
     return "Point";
 }

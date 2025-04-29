@@ -28,3 +28,7 @@ void Scribble::setColor(float r, float g, float b) {
     return;
     //Need to edit Scribble points vector
 }
+
+string Scribble::getSelectedShape() {
+    return "";
+}
