@@ -2,6 +2,9 @@
 #define RECTANGLE_H
 
 #include "Shape.h"
+#include <string>
+
+using namespace std;
 
 class Rectangle : public Shape {
     float x;
@@ -19,6 +22,7 @@ public:
     
     bool contains(float mx, float my);
     void setColor(float r, float g, float b);
+    string getSelectedShape();
 };
 
 #endif

@@ -3,6 +3,9 @@
 
 #include <GL/freeglut.h>
 #include <GL/gl.h>
+#include <string>
+
+using namespace std;
 
 // Abstract Data Type
 class Shape{
@@ -14,6 +17,8 @@ public:
     virtual bool contains(float mx, float my) = 0;
 
     virtual void setColor(float r, float g, float b) = 0;
+
+    virtual string getSelectedShape() = 0;
 
     // Since Shape contains at least one pure virtual function
     // Shape is an Abstract Data Type

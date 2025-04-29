@@ -2,6 +2,9 @@
 #define POLYGON_H
 
 #include "Shape.h"
+#include <string>
+
+using namespace std;
 
 class Polygon : public Shape{
     float x;
@@ -20,6 +23,8 @@ public:
     bool contains(float mx, float my);
     void setColor(float r, float g, float b);
     friend struct AppTest;
+
+    string getSelectedShape();
 };
 
 #endif

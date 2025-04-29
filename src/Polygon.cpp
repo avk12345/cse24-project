@@ -46,3 +46,7 @@ void Polygon::setColor(float r, float g, float b) {
     this->g = g;
     this->b = b;
 }
+
+string Polygon::getSelectedShape() {
+    return "Polygon";
+}

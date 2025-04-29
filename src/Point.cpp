@@ -1,5 +1,8 @@
 #include "Point.h"
 #include <GL/freeglut.h>
+#include <string>
+
+using namespace std;
 
 Point::Point() {
     x = 0.0;
@@ -66,4 +69,8 @@ void Point::setColor(float r, float g, float b) {
     this->r = r;
     this->g = g;
     this->b = b;
+}
+
+string getSelectedShape() {
+    return "Point";
 }

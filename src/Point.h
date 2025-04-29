@@ -2,6 +2,9 @@
 #define POINT_H
 
 #include "Shape.h"
+#include <string>
+
+using namespace std;
 
 class Point : public Shape {
     float x;
@@ -28,6 +31,7 @@ public:
 
     bool contains(float mx, float my);
     void setColor(float r, float g, float b);
+    string getSelectedShape();
 };
 
 #endif

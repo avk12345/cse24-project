@@ -1,5 +1,6 @@
 #include "Rectangle.h"
 #include <GL/freeglut.h>
+#include <string>
 
 Rectangle::Rectangle() {
     x = 0.0;
@@ -43,4 +44,8 @@ void Rectangle::setColor(float r, float g, float b) {
     this->r = r;
     this->g = g;
     this->b = b;
+}
+
+string Rectangle::getSelectedShape() {
+    return "Rectangle";
 }
