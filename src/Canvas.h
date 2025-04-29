@@ -43,6 +43,8 @@ public:
     void bringToFront();
     
     void pushToBack();
+    
+    Shape* getSelectedShape(float mx, float my);
 };
 
 #endif

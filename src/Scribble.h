@@ -14,6 +14,9 @@ public:
 
     void draw();
 
+    bool contains(float mx, float my);
+    void setColor(float r, float g, float b);
+
     ~Scribble();
 };
 #endif

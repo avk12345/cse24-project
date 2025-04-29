@@ -30,3 +30,13 @@ void Triangle::draw() {
         glVertex2f(x + base/2, y - height/2);
     glEnd();
 }
+
+bool Triangle::contains(float mx, float my) {
+    return false;
+}
+
+void Triangle::setColor(float r, float g, float b) {
+    this->r = r;
+    this->g = g;
+    this->b = b;
+}

@@ -32,3 +32,13 @@ void Polygon::draw() {
         }
     glEnd();
 }
+
+bool Polygon::contains(float mx, float my) {
+    return false;
+}
+
+void Polygon::setColor(float r, float g, float b) {
+    this->r = r;
+    this->g = g;
+    this->b = b;
+}
