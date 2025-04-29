@@ -39,6 +39,10 @@ public:
     void endScribble();
 
     void render();
+
+    void bringToFront();
+    
+    void pushToBack();
 };
 
 #endif

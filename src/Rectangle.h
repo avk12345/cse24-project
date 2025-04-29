@@ -16,6 +16,7 @@ public:
     Rectangle();
     Rectangle(float x, float y, float width, float height, float r, float g, float b);
     void draw();
+    
 };
 
 #endif

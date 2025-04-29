@@ -73,3 +73,11 @@ void Canvas::endScribble(){
         curr = nullptr;
     }
 }
+
+void bringToFront() {
+    //
+}
+
+void pushToBack() {
+    //
+}
