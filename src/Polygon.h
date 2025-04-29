@@ -2,6 +2,9 @@
 #define POLYGON_H
 
 #include "Shape.h"
+#include <string>
+
+using namespace std;
 
 class Polygon : public Shape{
     int sides;
@@ -14,6 +17,9 @@ public:
     void draw();
     bool contains(float mx, float my);
     friend struct AppTest;
+
+    void setColor(float r, float g, float b);
+    string getSelectedShape();
 };
 
 #endif

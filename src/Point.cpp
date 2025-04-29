@@ -1,5 +1,8 @@
 #include "Point.h"
 #include <GL/freeglut.h>
+#include <string>
+
+using namespace std;
 
 Point::Point() {
     size = 7;
@@ -54,4 +57,14 @@ int Point::getSize() const {
 
 bool Point::contains(float mx, float my) {
     return false;
+}
+
+void Point::setColor(float r, float g, float b) {
+    this->r = r;
+    this->g = g;
+    this->b = b;
+}
+
+string getSelectedShape() {
+    return "Point";
 }

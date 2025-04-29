@@ -2,6 +2,9 @@
 #define TRIANGLE_H
 
 #include "Shape.h"
+#include <string>
+
+using namespace std;
 
 class Triangle : public Shape{
     float base;
@@ -13,6 +16,8 @@ public:
     void draw();
     bool contains(float mx, float my);
     friend struct AppTest;
+    string getSelectedShape();
+    void setColor(float r, float g, float b);
 };
 
 #endif

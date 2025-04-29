@@ -12,7 +12,7 @@ DONE    10 points: ability to change color of selected shape/scribble
 
         To Do:
 
-        Anish - Moving x, y, r, g, and b to shape.cpp and adding setColor to just shapes
+        Anish - Adding a polygon button as well as implementing its functionality. (Finished moving redudant variables like r, g, and b to the Shape class).
         Rithvik - Changing shape size
         Eric - Adding moving shapes across canvas function
         Raj - Send selected shape to front or back

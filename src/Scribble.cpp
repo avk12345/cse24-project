@@ -1,4 +1,7 @@
 #include "Scribble.h"
+#include <string>
+
+using namespace std;
 
 void Scribble::addPoint(float x, float y, float r, float g, float b, int size){
     points.push_back(new Point(x, y, r, g, b, size));
