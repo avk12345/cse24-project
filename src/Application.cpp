@@ -6,7 +6,7 @@ using namespace bobcat;
 using namespace std;
 
 void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) {
-    TOOL tool = toolbar->getTool();
+    tool = toolbar->getTool();
     Color color = colorSelector->getColor();
 
     if (tool == PENCIL) {
@@ -74,7 +74,7 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
 void Application::onColorSelectorChange(bobcat::Widget* sender) {
     Color color = colorSelector->getColor();
 
-    if (selectedShape) {
+    if (selectedShape && tool == MOUSE) {
         cout << "Update selected shape color" << endl;
         selectedShape->setColor(color.getR(), color.getG(), color.getB());
         canvas->redraw();
