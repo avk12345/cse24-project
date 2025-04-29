@@ -4,8 +4,6 @@
 #include "Shape.h"
 
 class Rectangle : public Shape {
-    float x;
-    float y;
     float width;
     float height;
 

@@ -4,8 +4,6 @@
 #include "Shape.h"
 
 class Polygon : public Shape{
-    float x;
-    float y;
     int sides;
     float length;
 

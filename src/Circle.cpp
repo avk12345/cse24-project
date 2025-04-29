@@ -6,15 +6,11 @@
 
 using namespace std;
 
-Circle::Circle() {
-    x = 0.0;
-    y = 0.0;
+Circle::Circle() : Shape() {
     radius = 0.2;
 }
 
-Circle::Circle(float x, float y, float radius, float r, float g, float b) {
-    this->x = x;
-    this->y = y;
+Circle::Circle(float x, float y, float radius, float r, float g, float b) : Shape(x, y) {
     this->radius = radius;
     setColor(r, g, b);
 }

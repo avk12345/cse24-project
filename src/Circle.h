@@ -4,8 +4,6 @@
 #include "Shape.h"
 
 class Circle : public Shape {
-    float x;
-    float y;
     float radius;
 
 public:

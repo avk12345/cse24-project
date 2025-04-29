@@ -1,16 +1,12 @@
 #include "Rectangle.h"
 #include <GL/freeglut.h>
 
-Rectangle::Rectangle() {
-    x = 0.0;
-    y = 0.0;
+Rectangle::Rectangle() : Shape() {
     width = 0.4;
     height = 0.4;
 }
 
-Rectangle::Rectangle(float x, float y, float width, float height, float r, float g, float b) {
-    this->x = x;
-    this->y = y;
+Rectangle::Rectangle(float x, float y, float width, float height, float r, float g, float b) : Shape(x, y) {
     this->width = width;
     this->height = height;
     setColor(r, g, b);

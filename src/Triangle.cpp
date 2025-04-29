@@ -1,16 +1,12 @@
 #include "Triangle.h"
 #include <GL/freeglut.h>
 
-Triangle::Triangle() {
-    x = 0.0;
-    y = 0.0;
+Triangle::Triangle() : Shape() {
     base = 0.2;
     height = 0.2;
 }
 
-Triangle::Triangle(float x, float y, float base, float height, float r, float g, float b) {
-    this->x = x;
-    this->y = y;
+Triangle::Triangle(float x, float y, float base, float height, float r, float g, float b) : Shape(x, y) {
     this->base = base;
     this->height = height;
     setColor(r, g, b);

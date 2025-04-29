@@ -4,8 +4,6 @@
 #include "Shape.h"
 
 class Point : public Shape {
-    float x;
-    float y;
     int size;
 
 public:

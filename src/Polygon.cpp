@@ -2,16 +2,12 @@
 #include <GL/freeglut.h>
 #include <cmath>
 
-Polygon::Polygon() {
-    x = 0.0;
-    y = 0.0;
+Polygon::Polygon() : Shape() {
     sides = 5;
     length = 0.1;
 }
 
-Polygon::Polygon(float x, float y, int sides, float length, float r, float g, float b) {
-    this->x = x;
-    this->y = y;
+Polygon::Polygon(float x, float y, int sides, float length, float r, float g, float b) : Shape(x, y) {
     this->sides = sides;
     this->length = length;
     setColor(r, g, b);

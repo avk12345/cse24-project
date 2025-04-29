@@ -2,21 +2,20 @@
 #include <GL/freeglut.h>
 
 Point::Point() {
-    x = 0.0;
-    y = 0.0;
     size = 7;
 }
 
-Point::Point(float x, float y) : Point() {
-    this->x = x;
-    this->y = y;
+Point::Point(float x, float y) : Shape(x, y) {
+    size = 7;
 }
 
-Point::Point(float x, float y, float r, float g, float b) : Point(x, y) {
+Point::Point(float x, float y, float r, float g, float b) : Shape(x, y) {
     setColor(r,g,b);
+    size = 7;
 }
 
-Point::Point(float x, float y, float r, float g, float b, int size) : Point(x, y, r, g, b) {
+Point::Point(float x, float y, float r, float g, float b, int size) : Shape(x, y) {
+    setColor(r,g,b);
     this->size = size;
 }
 
