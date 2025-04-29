@@ -98,15 +98,17 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
     if (shapes.size() >= 1) {
         for (unsigned int i = shapes.size() - 1; i > 0; i--) {
                 if (shapes[i]->contains(mx, my)) {
-                    cout << "CLicked on shape[" << i << "]" << endl;
+                    cout << "Clicked on shape[" << i << "]" << endl;
                     selectedShape = shapes[i];
                     break;
                 }
             }
     }
-    
 
-    if (selectedShape == nullptr) {
+    if (selectedShape == shapes[0]) {
+        selectedShape = shapes[0];
+        cout << "Clicked on shape[0]" << endl;
+    } else if (selectedShape == nullptr) {
         cout << "No selected shape" << endl;
     }
 
