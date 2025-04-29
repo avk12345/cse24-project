@@ -107,9 +107,6 @@ Shape* Canvas::getSelectedShape(float mx, float my) {
 
     if (selectedShape == nullptr) {
         cout << "No selected shape" << endl;
-    } else if (selectedShape == shapes[0]) {
-        selectedShape = shapes[0];
-        cout << "Clicked on shape[0]" << endl;
     }
 
     return selectedShape;
