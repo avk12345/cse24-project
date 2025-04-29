@@ -79,9 +79,15 @@ void Canvas::endScribble(){
     }
 }
 
-void Canvas::bringToFront() {
-    //
+void Canvas::bringToFront(Shape* shape) {
+    for (int i = 0; i < shapes.size(); i++) {
+        if (shapes[i] == shape) {
+            shapes.erase(shapes.begin() + i);
+            shapes.push_back(shape);
+        }
+    }
 }
+
 
 void Canvas::pushToBack() {
     //
@@ -100,6 +106,7 @@ void Canvas::changeSize(Shape* selectedShape) {
         //
     }
 }
+
 
 Shape* Canvas::getSelectedShape(float mx, float my) {
     Shape* selectedShape = nullptr;

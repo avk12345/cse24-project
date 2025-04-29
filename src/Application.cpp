@@ -82,6 +82,13 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
     }
 }
 
+void Application::pushToFront(bobcat::Widget* sender) {
+    if (selectedShape && tool == PUSHFRONT) {
+        canvas->bringToFront(selectedShape);
+        canvas->redraw();
+    }
+}
+
 Application::Application() {
     window = new Window(25, 75, 600, 600, "Paint Application Shapes");
 

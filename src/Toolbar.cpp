@@ -35,7 +35,13 @@ void Toolbar::visualizeSelectedTool() {
     }
     else if (tool == MOUSE) {
         mouseButton->color(FL_WHITE);
-    } 
+    }
+    else if (tool == PUSHFRONT) {
+        backFrontButton->color(FL_WHITE);
+    }
+    else if (tool == PUSHBACK) {
+        frontBackButton->color(FL_WHITE);
+    }
 }
 
 void Toolbar::onClick(bobcat::Widget* sender) {
@@ -66,6 +72,10 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     }
     else if (sender == mouseButton) {
         tool = MOUSE;
+    } else if (sender == frontBackButton) {
+        tool = PUSHBACK;
+    } else if (sender == backFrontButton) {
+        tool = PUSHFRONT;
     }
     else if(sender == minusButton) {
         action == DECREASE;
