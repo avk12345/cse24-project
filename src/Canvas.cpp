@@ -82,6 +82,14 @@ void pushToBack() {
     //
 }
 
+void moveShape() {
+    //
+}
+
+void increaseSize() {
+    //
+}
+
 Shape* Canvas::getSelectedShape(float mx, float my) {
     Shape* selectedShape = nullptr;
 
