@@ -93,13 +93,13 @@ void Application::pushToFront(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(25, 75, 600, 600, "Paint Application Shapes");
+    window = new Window(25, 75, 600, 650, "Paint Application Shapes");
 
     selectedShape = nullptr;
 
-    toolbar = new Toolbar(0, 0, 50, 600);
-    canvas = new Canvas(50, 0, 600, 550);
-    colorSelector = new ColorSelector(50, 550, 350, 50);
+    toolbar = new Toolbar(0, 0, 50, 650);
+    canvas = new Canvas(50, 0, 600, 600);
+    colorSelector = new ColorSelector(50, 600, 350, 50);
 
     window->add(toolbar);
     window->add(canvas);
