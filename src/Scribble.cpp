@@ -16,3 +16,12 @@ Scribble::~Scribble(){
     }
     points.clear();
 }
+
+bool Scribble::contains(float mx, float my) {
+    return false;
+}
+
+void Scribble::setColor(float r, float g, float b) {
+    return;
+    //Need to edit Scribble points vector
+}

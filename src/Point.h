@@ -3,7 +3,7 @@
 
 #include "Shape.h"
 
-class Point: public Shape {
+class Point : public Shape {
     float x;
     float y;
     float r;
@@ -25,6 +25,9 @@ public:
     float getG() const;
     float getB() const;
     int getSize() const;
+
+    bool contains(float mx, float my);
+    void setColor(float r, float g, float b);
 };
 
 #endif

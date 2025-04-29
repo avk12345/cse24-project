@@ -1,4 +1,5 @@
 #include "Application.h"
+#include <bobcat_ui/bobcat_ui.h>
 
 
 using namespace bobcat;
@@ -34,6 +35,9 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
         canvas->addPolygon(mx, my, 6, 0.1, color.getR(), color.getG(), color.getB());
         canvas->redraw();
     }
+    else if (tool == MOUSE) {
+        selectedShape = canvas->getSelectedShape(mx, my);
+    }
 }
 
 void Application::onCanvasMouseUp(bobcat::Widget* sender, float mx, float my) {
@@ -67,8 +71,20 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     }
 }
 
+void Application::onColorSelectorChange(bobcat::Widget* sender) {
+    Color color = colorSelector->getColor();
+
+    if (selectedShape) {
+        cout << "Update selected shape color" << endl;
+        selectedShape->setColor(color.getR(), color.getG(), color.getB());
+        canvas->redraw();
+    }
+}
+
 Application::Application() {
     window = new Window(25, 75, 600, 600, "Paint Application Shapes");
+
+    selectedShape = nullptr;
 
     toolbar = new Toolbar(0, 0, 50, 600);
     canvas = new Canvas(50, 0, 600, 550);
