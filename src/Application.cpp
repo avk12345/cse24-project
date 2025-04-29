@@ -60,6 +60,7 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
 
 void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
+    TOOL tool = toolbar->getTool();
 
     if (action == CLEAR) {
         canvas->clear();
@@ -67,6 +68,9 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     }
     if (action == UNDO) {
         canvas->undo();
+        canvas->redraw();
+    } if (tool == PUSHFRONT && selectedShape) {
+        canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
     selectedShape = nullptr;

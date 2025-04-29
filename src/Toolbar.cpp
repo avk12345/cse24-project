@@ -141,4 +141,6 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(mouseButton, Toolbar::onClick);
     ON_CLICK(plusButton, Toolbar::onClick);
     ON_CLICK(minusButton, Toolbar::onClick);
+    ON_CLICK(backFrontButton, Toolbar::onClick);
+    ON_CLICK(frontBackButton, Toolbar::onClick);
 }
