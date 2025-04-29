@@ -6,9 +6,6 @@
 class Point : public Shape {
     float x;
     float y;
-    float r;
-    float g;
-    float b;
     int size;
 
 public:
@@ -27,7 +24,6 @@ public:
     int getSize() const;
 
     bool contains(float mx, float my);
-    void setColor(float r, float g, float b);
 };
 
 #endif

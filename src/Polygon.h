@@ -8,9 +8,6 @@ class Polygon : public Shape{
     float y;
     int sides;
     float length;
-    float r;
-    float g;
-    float b;
 
 public:
     Polygon();
@@ -18,7 +15,6 @@ public:
 
     void draw();
     bool contains(float mx, float my);
-    void setColor(float r, float g, float b);
     friend struct AppTest;
 };
 

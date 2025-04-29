@@ -6,9 +6,6 @@ Rectangle::Rectangle() {
     y = 0.0;
     width = 0.4;
     height = 0.4;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
 }
 
 Rectangle::Rectangle(float x, float y, float width, float height, float r, float g, float b) {
@@ -16,9 +13,7 @@ Rectangle::Rectangle(float x, float y, float width, float height, float r, float
     this->y = y;
     this->width = width;
     this->height = height;
-    this->r = r;
-    this->g = g;
-    this->b = b;
+    setColor(r, g, b);
 }
 
 void Rectangle::draw() {
@@ -37,10 +32,4 @@ bool Rectangle::contains(float mx, float my) {
         return true;
     }
     return false;
-}
-
-void Rectangle::setColor(float r, float g, float b) {
-    this->r = r;
-    this->g = g;
-    this->b = b;
 }

@@ -1,7 +1,6 @@
 #include "Application.h"
 #include <bobcat_ui/bobcat_ui.h>
 
-
 using namespace bobcat;
 using namespace std;
 

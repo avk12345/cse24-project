@@ -10,18 +10,13 @@ Circle::Circle() {
     x = 0.0;
     y = 0.0;
     radius = 0.2;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
 }
 
 Circle::Circle(float x, float y, float radius, float r, float g, float b) {
-    this->x = x; 
-    this->y = y; 
+    this->x = x;
+    this->y = y;
     this->radius = radius;
-    this->r = r; 
-    this->g = g; 
-    this->b = b; 
+    setColor(r, g, b);
 }
 
 void Circle::draw() {
@@ -41,10 +36,4 @@ bool Circle::contains(float mx, float my) {
     }
 
     return false;
-}
-
-void Circle::setColor(float r, float g, float b) {
-    this->r = r;
-    this->g = g;
-    this->b = b;
 }
