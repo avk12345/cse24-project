@@ -40,6 +40,14 @@ public:
 
     void render();
 
+    void bringToFront();
+    
+    void pushToBack();
+
+    void moveShape();
+
+    void increaseSize();
+
     Shape* getSelectedShape(float mx, float my);
 };
 
