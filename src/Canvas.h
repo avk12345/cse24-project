@@ -39,6 +39,8 @@ public:
     void endScribble();
 
     void render();
+
+    Shape* getSelectedShape(float mx, float my);
 };
 
 #endif

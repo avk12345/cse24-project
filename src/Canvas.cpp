@@ -73,3 +73,21 @@ void Canvas::endScribble(){
         curr = nullptr;
     }
 }
+
+Shape* Canvas::getSelectedShape(float mx, float my) {
+    Shape* selectedShape = nullptr;
+
+    for (unsigned int i = shapes.size() - 1; i >= 0; i--) {
+        if (shapes[i]->contains(mx, my)) {
+            std::cout << "CLicked on shape[" << i << "]" << std::endl;
+            selectedShape = shapes[i];
+            break;
+        }
+    }
+
+    if (selectedShape == nullptr) {
+        std::cout << "No selected shape" << std::endl;
+    }
+
+    return selectedShape;
+}
