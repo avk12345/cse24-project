@@ -20,6 +20,8 @@ public:
 
     void setColor(float r, float g, float b);
     string getSelectedShape();
+
+    void changeSize(float changeNum);
 };
 
 #endif

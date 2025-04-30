@@ -31,6 +31,8 @@ public:
 
     virtual string getSelectedShape() = 0;
 
+    virtual void changeSize(float changeNum) = 0;
+
     // Since Shape contains at least one pure virtual function
     // Shape is an Abstract Data Type
 

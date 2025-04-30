@@ -22,5 +22,7 @@ public:
     string getSelectedShape();
 
     ~Scribble();
+
+    void changeSize(float changeNum);
 };
 #endif

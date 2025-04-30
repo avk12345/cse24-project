@@ -30,5 +30,9 @@ void Scribble::setColor(float r, float g, float b) {
 }
 
 string Scribble::getSelectedShape() {
-    return "";
+    return "Scribble";
+}
+
+void Scribble::changeSize(float changeNum) {
+    return;
 }

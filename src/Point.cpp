@@ -68,3 +68,8 @@ void Point::setColor(float r, float g, float b) {
 string Point::getSelectedShape() {
     return "Point";
 }
+
+void Point::changeSize(float changeNum) {
+    size += changeNum;\
+    draw();
+}

@@ -39,3 +39,9 @@ void Triangle::setColor(float r, float g, float b) {
 string Triangle::getSelectedShape() {
     return "Triangle";
 }
+
+void Triangle::changeSize(float changeNum) {
+    base += changeNum;
+    height += changeNum;
+    draw();
+}

@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "Enums.h"
 #include <bobcat_ui/bobcat_ui.h>
 
 using namespace bobcat;
@@ -72,6 +73,11 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
+    if(action == DECREASE || action == INCREASE) {
+        canvas->changeSize(selectedShape);
+        cout << "Size changed" << endl;
+    }
+    
     selectedShape = nullptr;
 }
 

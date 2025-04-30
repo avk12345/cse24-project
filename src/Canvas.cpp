@@ -101,23 +101,23 @@ void Canvas::moveShape() {
 void Canvas::changeSize(Shape* selectedShape) {
     ACTION action = tool->getAction();
     string shape = selectedShape->getSelectedShape();
-    int changeNum = 0;
+    float changeNum = 0.0;
 
     if(action == INCREASE) {
-        changeNum = 1;
+        changeNum = 1.0;
     }
     if(action == DECREASE) {
-        changeNum = -1;
+        changeNum = -1.0;
     }
 
     if(shape == "Rectangle") {
-        //
+        selectedShape->changeSize(changeNum);
     } else if(shape == "Triangle") {
-        //
+        selectedShape->changeSize(changeNum);
     } else if(shape == "Circle") {
-        //
+        selectedShape->changeSize(changeNum);
     } else if(shape == "Polygon") {
-        //
+        selectedShape->changeSize(changeNum);
     }
 }
 Shape *Canvas::getSelectedShape(float mx, float my) {

@@ -41,3 +41,8 @@ void Polygon::setColor(float r, float g, float b) {
 string Polygon::getSelectedShape() {
     return "Polygon";
 }
+
+void Polygon::changeSize(float changeNum) {
+    length += changeNum;
+    draw();
+}

@@ -43,3 +43,8 @@ void Circle::setColor(float r, float g, float b) {
 string Circle::getSelectedShape() {
     return "Circle";
 }
+
+void Circle::changeSize(float changeNum) {
+    radius += changeNum;
+    draw();
+}

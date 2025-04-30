@@ -40,3 +40,9 @@ void Rectangle::setColor(float r, float g, float b) {
 string Rectangle::getSelectedShape() {
     return "Rectangle";
 }
+
+void Rectangle::changeSize(float changeNum) {
+    width += changeNum;
+    height += changeNum;
+    draw();
+}
