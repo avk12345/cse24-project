@@ -80,7 +80,7 @@ void Canvas::endScribble() {
 }
 
 void Canvas::bringToFront(Shape *shape) {
-  for (int i = 0; i < shapes.size(); i++) {
+  for (long unsigned int i = 0; i < shapes.size(); i++) {
     if (shapes[i] == shape) {
       Shape *curr = shape;
       shapes.erase(shapes.begin() + i);
