@@ -82,16 +82,17 @@ void Canvas::endScribble() {
 void Canvas::bringToFront(Shape *shape) {
   for (int i = 0; i < shapes.size(); i++) {
     if (shapes[i] == shape) {
-      Shape *curr = shape;
-      shapes.erase(shapes.begin() + i);
-      shapes.push_back(curr);
-      break;
+      swap(shapes[i], shapes[shapes.size() - 1]);
     }
   }
 }
 
-void Canvas::pushToBack() {
-  //
+void Canvas::pushToBack(Shape *shape) {
+  for (int i = 0; i < shapes.size(); i++) {
+    if (shapes[i] == shape) {
+      swap(shapes[i], shapes[shapes.size() - 1]);
+    }
+  }
 }
 
 void Canvas::moveShape() {
