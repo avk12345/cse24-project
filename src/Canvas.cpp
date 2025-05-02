@@ -54,48 +54,49 @@ void Canvas::undo() {
 }
 
 void Canvas::render() {
-  for (unsigned int i = 0; i < shapes.size(); i++) {
-    shapes[i]->draw();
-  }
+    for (unsigned int i = 0; i < shapes.size(); i++) {
+        shapes[i]->draw();
+    }
 
-  if (curr) {
-    curr->draw();
-  }
+    if (curr) {
+        curr->draw();
+    }
 }
 
-void Canvas::startScribble() { curr = new Scribble(); }
+void Canvas::startScribble() {
+    curr = new Scribble();
+}
 
-void Canvas::updateScribble(float x, float y, float r, float g, float b,
-                            int size) {
-  if (curr) {
-    curr->addPoint(x, y, r, g, b, size);
-  }
+void Canvas::updateScribble(float x, float y, float r, float g, float b, int size) {
+    if (curr) {
+        curr->addPoint(x, y, r, g, b, size);
+    }
 }
 
 void Canvas::endScribble() {
-  if (curr) {
-    shapes.push_back(curr);
-    curr = nullptr;
-  }
+    if (curr) {
+        shapes.push_back(curr);
+        curr = nullptr;
+    }
 }
 
 void Canvas::bringToFront(Shape *shape) {
-  for (long unsigned int i = 0; i < shapes.size(); i++) {
-    if (shapes[i] == shape) {
-      Shape *curr = shape;
-      shapes.erase(shapes.begin() + i);
-      shapes.push_back(curr);
-      break;
+    for (long unsigned int i = 0; i < shapes.size(); i++) {
+        if (shapes[i] == shape) {
+        Shape *curr = shape;
+        shapes.erase(shapes.begin() + i);
+        shapes.push_back(curr);
+        break;
     }
   }
 }
 
 void Canvas::pushToBack() {
-  //
+    //
 }
 
 void Canvas::moveShape() {
-  //
+    //
 }
 
 void Canvas::changeSize(Shape* selectedShape) {
@@ -121,21 +122,21 @@ void Canvas::changeSize(Shape* selectedShape) {
     }
 }
 Shape *Canvas::getSelectedShape(float mx, float my) {
-  Shape *selectedShape = nullptr;
+    Shape *selectedShape = nullptr;
 
-  if (shapes.size() >= 1) {
-    for (unsigned int i = shapes.size(); i > 0; i--) {
-      if (shapes[i - 1]->contains(mx, my)) {
-        cout << "Clicked on shape[" << i - 1 << "]" << endl;
-        selectedShape = shapes[i - 1];
-        break;
-      }
+    if (shapes.size() >= 1) {
+        for (unsigned int i = shapes.size(); i > 0; i--) {
+        if (shapes[i - 1]->contains(mx, my)) {
+            cout << "Clicked on shape[" << i - 1 << "]" << endl;
+            selectedShape = shapes[i - 1];
+            break;
+        }
+        }
     }
-  }
 
-  if (selectedShape == nullptr) {
-    cout << "No selected shape" << endl;
-  }
+    if (selectedShape == nullptr) {
+        cout << "No selected shape" << endl;
+    }
 
-  return selectedShape;
+    return selectedShape;
 }
