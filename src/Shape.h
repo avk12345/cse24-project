@@ -29,6 +29,11 @@ public:
         this->b = b; 
     }
 
+    virtual void setPosition(float mx, float my) {
+        this->x = mx;
+        this->y = my;
+    }
+
     virtual string getSelectedShape() = 0;
 
     virtual void changeSize(float changeNum) = 0;

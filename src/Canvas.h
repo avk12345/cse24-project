@@ -45,7 +45,7 @@ public:
 
     void bringToFront(Shape* shape);
     
-    void pushToBack();
+    void pushToBack(Shape *shape);
 
     void moveShape();
 

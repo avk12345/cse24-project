@@ -21,12 +21,19 @@ Scribble::~Scribble(){
 }
 
 bool Scribble::contains(float mx, float my) {
+    for (unsigned int i = 0; i < points.size(); i++) {
+        if (points[i]->contains(mx, mx)) {
+            return true;
+        }
+    }
     return false;
 }
 
 void Scribble::setColor(float r, float g, float b) {
+    for (unsigned int i = 0; i < points.size(); i++) {
+        points[i]->setColor(r, g, b);
+    }
     return;
-    //Need to edit Scribble points vector
 }
 
 string Scribble::getSelectedShape() {

@@ -13,6 +13,8 @@ void Toolbar::deselectAllTools() {
     polygonButton->color(FL_BACKGROUND_COLOR);
     undoButton->color(FL_BACKGROUND_COLOR);
     mouseButton->color(FL_BACKGROUND_COLOR);
+    frontBackButton->color(FL_BACKGROUND_COLOR);
+    backFrontButton->color(FL_BACKGROUND_COLOR);
 }
 
 void Toolbar::visualizeSelectedTool() {
