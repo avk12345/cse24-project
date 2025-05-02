@@ -1,6 +1,8 @@
 #include "Application.h"
 #include "Enums.h"
 #include <bobcat_ui/bobcat_ui.h>
+#include <cstddef>
+#include <sys/select.h>
 
 using namespace bobcat;
 using namespace std;
@@ -55,6 +57,12 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
     else if (tool == ERASER) {
         canvas->updateScribble(mx, my, 1.0, 1.0, 1.0, 14);
         canvas->redraw();
+    }
+    else if (tool == MOUSE) {
+        if (selectedShape != nullptr) {
+            selectedShape->setPosition(mx, my);
+            canvas->redraw();
+        }
     }
 }
 
