@@ -54,77 +54,104 @@ void Canvas::undo() {
 }
 
 void Canvas::render() {
-  for (unsigned int i = 0; i < shapes.size(); i++) {
-    shapes[i]->draw();
-  }
+    for (unsigned int i = 0; i < shapes.size(); i++) {
+        shapes[i]->draw();
+    }
 
-  if (curr) {
-    curr->draw();
-  }
+    if (curr) {
+        curr->draw();
+    }
 }
 
-void Canvas::startScribble() { curr = new Scribble(); }
+void Canvas::startScribble() {
+    curr = new Scribble();
+}
 
-void Canvas::updateScribble(float x, float y, float r, float g, float b,
-                            int size) {
-  if (curr) {
-    curr->addPoint(x, y, r, g, b, size);
-  }
+void Canvas::updateScribble(float x, float y, float r, float g, float b, int size) {
+    if (curr) {
+        curr->addPoint(x, y, r, g, b, size);
+    }
 }
 
 void Canvas::endScribble() {
-  if (curr) {
-    shapes.push_back(curr);
-    curr = nullptr;
-  }
+    if (curr) {
+        shapes.push_back(curr);
+        curr = nullptr;
+    }
 }
 
 void Canvas::bringToFront(Shape *shape) {
+<<<<<<< HEAD
   for (int i = 0; i < shapes.size(); i++) {
     if (shapes[i] == shape) {
       swap(shapes[i], shapes[shapes.size() - 1]);
+=======
+    for (long unsigned int i = 0; i < shapes.size(); i++) {
+        if (shapes[i] == shape) {
+        Shape *curr = shape;
+        shapes.erase(shapes.begin() + i);
+        shapes.push_back(curr);
+        break;
+>>>>>>> 2b763edf5d3cb503fc5f222abe24d67c3e2bb47d
     }
   }
 }
 
+<<<<<<< HEAD
 void Canvas::pushToBack(Shape *shape) {
   for (int i = 0; i < shapes.size(); i++) {
     if (shapes[i] == shape) {
       swap(shapes[i], shapes[shapes.size() - 1]);
     }
   }
+=======
+void Canvas::pushToBack() {
+    //
+>>>>>>> 2b763edf5d3cb503fc5f222abe24d67c3e2bb47d
 }
 
 void Canvas::moveShape() {
-  //
+    //
 }
 
-void Canvas::changeSize(Shape *selectedShape) {
-  ACTION action = tool->getAction();
-  if (action == INCREASE) {
-    //
-  }
-  if (action == DECREASE) {
-    //
-  }
-}
+void Canvas::changeSize(Shape* selectedShape) {
+    ACTION action = tool->getAction();
+    string shape = selectedShape->getSelectedShape();
+    float changeNum = 0.0;
 
-Shape *Canvas::getSelectedShape(float mx, float my) {
-  Shape *selectedShape = nullptr;
-
-  if (shapes.size() >= 1) {
-    for (unsigned int i = shapes.size(); i > 0; i--) {
-      if (shapes[i - 1]->contains(mx, my)) {
-        cout << "Clicked on shape[" << i - 1 << "]" << endl;
-        selectedShape = shapes[i - 1];
-        break;
-      }
+    if(action == INCREASE) {
+        changeNum = 1.0;
     }
-  }
+    if(action == DECREASE) {
+        changeNum = -1.0;
+    }
 
-  if (selectedShape == nullptr) {
-    cout << "No selected shape" << endl;
-  }
+    if(shape == "Rectangle") {
+        selectedShape->changeSize(changeNum);
+    } else if(shape == "Triangle") {
+        selectedShape->changeSize(changeNum);
+    } else if(shape == "Circle") {
+        selectedShape->changeSize(changeNum);
+    } else if(shape == "Polygon") {
+        selectedShape->changeSize(changeNum);
+    }
+}
+Shape *Canvas::getSelectedShape(float mx, float my) {
+    Shape *selectedShape = nullptr;
 
-  return selectedShape;
+    if (shapes.size() >= 1) {
+        for (unsigned int i = shapes.size(); i > 0; i--) {
+        if (shapes[i - 1]->contains(mx, my)) {
+            cout << "Clicked on shape[" << i - 1 << "]" << endl;
+            selectedShape = shapes[i - 1];
+            break;
+        }
+        }
+    }
+
+    if (selectedShape == nullptr) {
+        cout << "No selected shape" << endl;
+    }
+
+    return selectedShape;
 }

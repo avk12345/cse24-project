@@ -1,6 +1,8 @@
 #include "Application.h"
+#include "Enums.h"
 #include <bobcat_ui/bobcat_ui.h>
-
+#include <cstddef>
+#include <sys/select.h>
 
 using namespace bobcat;
 using namespace std;
@@ -56,6 +58,12 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
         canvas->updateScribble(mx, my, 1.0, 1.0, 1.0, 14);
         canvas->redraw();
     }
+    else if (tool == MOUSE) {
+        if (selectedShape != nullptr) {
+            selectedShape->setPosition(mx, my);
+            canvas->redraw();
+        }
+    }
 }
 
 void Application::onToolbarChange(bobcat::Widget* sender) {
@@ -74,6 +82,11 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
+    if(action == DECREASE || action == INCREASE) {
+        canvas->changeSize(selectedShape);
+        cout << "Size changed" << endl;
+    }
+    
     selectedShape = nullptr;
 }
 
@@ -95,13 +108,13 @@ void Application::pushToFront(bobcat::Widget* sender) {
 }
 
 Application::Application() {
-    window = new Window(25, 75, 600, 600, "Paint Application Shapes");
+    window = new Window(25, 75, 600, 650, "Paint Application Shapes");
 
     selectedShape = nullptr;
 
-    toolbar = new Toolbar(0, 0, 50, 600);
-    canvas = new Canvas(50, 0, 600, 550);
-    colorSelector = new ColorSelector(50, 550, 350, 50);
+    toolbar = new Toolbar(0, 0, 50, 650);
+    canvas = new Canvas(50, 0, 600, 600);
+    colorSelector = new ColorSelector(50, 600, 350, 50);
 
     window->add(toolbar);
     window->add(canvas);

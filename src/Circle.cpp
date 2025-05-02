@@ -6,22 +6,13 @@
 
 using namespace std;
 
-Circle::Circle() {
-    x = 0.0;
-    y = 0.0;
+Circle::Circle() : Shape() {
     radius = 0.2;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
 }
 
-Circle::Circle(float x, float y, float radius, float r, float g, float b) {
-    this->x = x; 
-    this->y = y; 
+Circle::Circle(float x, float y, float radius, float r, float g, float b) : Shape(x, y) {
     this->radius = radius;
-    this->r = r; 
-    this->g = g; 
-    this->b = b; 
+    setColor(r, g, b);
 }
 
 void Circle::draw() {
@@ -47,4 +38,13 @@ void Circle::setColor(float r, float g, float b) {
     this->r = r;
     this->g = g;
     this->b = b;
+}
+
+string Circle::getSelectedShape() {
+    return "Circle";
+}
+
+void Circle::changeSize(float changeNum) {
+    radius += changeNum;
+    draw();
 }

@@ -1,24 +1,16 @@
 #include "Rectangle.h"
 #include <GL/freeglut.h>
+#include <string>
 
-Rectangle::Rectangle() {
-    x = 0.0;
-    y = 0.0;
+Rectangle::Rectangle() : Shape() {
     width = 0.4;
     height = 0.4;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
 }
 
-Rectangle::Rectangle(float x, float y, float width, float height, float r, float g, float b) {
-    this->x = x;
-    this->y = y;
+Rectangle::Rectangle(float x, float y, float width, float height, float r, float g, float b) : Shape(x, y) {
     this->width = width;
     this->height = height;
-    this->r = r;
-    this->g = g;
-    this->b = b;
+    setColor(r, g, b);
 }
 
 void Rectangle::draw() {
@@ -43,4 +35,14 @@ void Rectangle::setColor(float r, float g, float b) {
     this->r = r;
     this->g = g;
     this->b = b;
+}
+
+string Rectangle::getSelectedShape() {
+    return "Rectangle";
+}
+
+void Rectangle::changeSize(float changeNum) {
+    width += changeNum;
+    height += changeNum;
+    draw();
 }

@@ -10,6 +10,7 @@ void Toolbar::deselectAllTools() {
     circleButton->color(FL_BACKGROUND_COLOR);
     triangleButton->color(FL_BACKGROUND_COLOR);
     rectangleButton->color(FL_BACKGROUND_COLOR);
+    polygonButton->color(FL_BACKGROUND_COLOR);
     undoButton->color(FL_BACKGROUND_COLOR);
     mouseButton->color(FL_BACKGROUND_COLOR);
     frontBackButton->color(FL_BACKGROUND_COLOR);
@@ -33,7 +34,7 @@ void Toolbar::visualizeSelectedTool() {
         rectangleButton->color(FL_WHITE);
     }
     else if (tool == POLYGON) {
-        rectangleButton->color(FL_WHITE);
+        polygonButton->color(FL_WHITE);
     }
     else if (tool == MOUSE) {
         mouseButton->color(FL_WHITE);
@@ -65,6 +66,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     }
     else if (sender == rectangleButton) {
         tool = RECTANGLE;
+    }
+    else if (sender == polygonButton) {
+        tool = POLYGON;
     }
     else if (sender == undoButton) {
         action = UNDO;
@@ -107,13 +111,14 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     circleButton = new Image(x, y + 100, 50, 50, "./assets/circle.png");
     triangleButton = new Image(x, y + 150, 50, 50, "./assets/triangle.png");
     rectangleButton = new Image(x, y + 200, 50, 50, "./assets/rectangle.png");
-    undoButton = new Image(x, y + 250, 50, 50, "./assets/undo.png");
-    clearButton = new Image(x, y + 300, 50, 50, "./assets/clear.png");
-    plusButton = new Image(x, y + 350, 50, 50, "./assets/plus.png");
-    minusButton = new Image(x, y + 400, 50, 50, "./assets/minus.png");
-    frontBackButton = new Image(x, y + 450, 50, 50, "./assets/send-to-back.png");
-    backFrontButton = new Image(x, y + 500, 50, 50, "./assets/bring-to-front.png");
-    mouseButton = new Image(x, y + 550, 50, 50, "./assets/mouse.png");
+    polygonButton = new Image(x, y + 250, 50, 50, "./assets/polygon.png");
+    undoButton = new Image(x, y + 300, 50, 50, "./assets/undo.png");
+    clearButton = new Image(x, y + 350, 50, 50, "./assets/clear.png");
+    plusButton = new Image(x, y + 400, 50, 50, "./assets/plus.png");
+    minusButton = new Image(x, y + 450, 50, 50, "./assets/minus.png");
+    frontBackButton = new Image(x, y + 500, 50, 50, "./assets/send-to-back.png");
+    backFrontButton = new Image(x, y + 550, 50, 50, "./assets/bring-to-front.png");
+    mouseButton = new Image(x, y + 600, 50, 50, "./assets/mouse.png");
 
     tool = PENCIL;
     action = NONE;
@@ -123,6 +128,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     circleButton->box(FL_BORDER_BOX);
     triangleButton->box(FL_BORDER_BOX);
     rectangleButton->box(FL_BORDER_BOX);
+    polygonButton->box(FL_BORDER_BOX);
     undoButton->box(FL_BORDER_BOX);
     clearButton->box(FL_BORDER_BOX);
     plusButton->box(FL_BORDER_BOX);
@@ -138,6 +144,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(circleButton, Toolbar::onClick);
     ON_CLICK(triangleButton, Toolbar::onClick);
     ON_CLICK(rectangleButton, Toolbar::onClick);
+    ON_CLICK(polygonButton, Toolbar::onClick);
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
     ON_CLICK(mouseButton, Toolbar::onClick);

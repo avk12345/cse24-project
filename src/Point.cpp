@@ -1,27 +1,24 @@
 #include "Point.h"
 #include <GL/freeglut.h>
+#include <string>
+
+using namespace std;
 
 Point::Point() {
-    x = 0.0;
-    y = 0.0;
-    r = 0.0;
-    g = 0.0;
-    b = 0.0;
     size = 7;
 }
 
-Point::Point(float x, float y) : Point() {
-    this->x = x;
-    this->y = y;
+Point::Point(float x, float y) : Shape(x, y) {
+    size = 7;
 }
 
-Point::Point(float x, float y, float r, float g, float b) : Point(x, y) {
-    this->r = r;
-    this->g = g;
-    this->b = b;
+Point::Point(float x, float y, float r, float g, float b) : Shape(x, y) {
+    setColor(r,g,b);
+    size = 7;
 }
 
-Point::Point(float x, float y, float r, float g, float b, int size) : Point(x, y, r, g, b) {
+Point::Point(float x, float y, float r, float g, float b, int size) : Shape(x, y) {
+    setColor(r,g,b);
     this->size = size;
 }
 
@@ -59,6 +56,9 @@ int Point::getSize() const {
 }
 
 bool Point::contains(float mx, float my) {
+    // if (mx >= this->x - 0.2 && mx <= this->x + 0.2 && my <= this->y + 0.2 && my >= this->y - 0.2) {
+    //     return true;
+    // }
     return false;
 }
 
@@ -66,4 +66,13 @@ void Point::setColor(float r, float g, float b) {
     this->r = r;
     this->g = g;
     this->b = b;
+}
+
+string Point::getSelectedShape() {
+    return "Point";
+}
+
+void Point::changeSize(float changeNum) {
+    size += changeNum;\
+    draw();
 }

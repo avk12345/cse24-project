@@ -2,14 +2,12 @@
 #define CIRCLE_H
 
 #include "Shape.h"
+#include <string>
 
-class Circle : public Shape{
-    float x;
-    float y;
+using namespace std;
+
+class Circle : public Shape {
     float radius;
-    float r;
-    float g;
-    float b;
 
 public:
     Circle();
@@ -17,6 +15,10 @@ public:
     void draw();
     bool contains(float mx, float my);
     void setColor(float r, float g, float b);
+
+    string getSelectedShape();
+
+    void changeSize(float changeNum);
 };
 
 #endif
