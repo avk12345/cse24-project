@@ -82,9 +82,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
         tool = PUSHFRONT;
     }
     else if(sender == minusButton) {
-        action == DECREASE;
+        action = DECREASE;
     } else if(sender == plusButton) {
-        action == INCREASE;
+        action = INCREASE;
     }
 
     if (onChangeCb) {

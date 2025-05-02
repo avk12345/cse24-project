@@ -49,7 +49,7 @@ public:
 
     void moveShape();
 
-    void changeSize(Shape* selectedShape);
+    void changeSize(Shape* selectedShape, float changeNum);
 
     Shape* getSelectedShape(float mx, float my);
 };

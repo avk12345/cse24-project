@@ -73,9 +73,17 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
-    if(action == DECREASE || action == INCREASE) {
-        canvas->changeSize(selectedShape);
-        cout << "Size changed" << endl;
+    if((action == DECREASE || action == INCREASE) && selectedShape) {
+        cout << "size changed" << endl;
+        float changeNum;
+        if(action == DECREASE) {
+            changeNum = -0.05;
+        } else if(action == INCREASE) {
+            changeNum = 0.05;
+        }
+        cout << changeNum << endl;
+        canvas->changeSize(selectedShape, changeNum);
+        canvas->redraw();
     }
     
     selectedShape = nullptr;
