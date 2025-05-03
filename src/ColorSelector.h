@@ -2,10 +2,16 @@
 #define COLOR_SELECTOR_H
 
 #include <bobcat_ui/all.h>
+#include <bobcat_ui/int_input.h>
 #include "Color.h"
 #include "Enums.h"
 
 class ColorSelector : public bobcat::Group {
+    bobcat::IntInput* red;
+    bobcat::IntInput* green;
+    bobcat::IntInput* blue;
+
+
     bobcat::Button* redButton;
     bobcat::Button* orangeButton;
     bobcat::Button* yellowButton;
@@ -13,6 +19,7 @@ class ColorSelector : public bobcat::Group {
     bobcat::Button* blueButton;
     bobcat::Button* indigoButton;
     bobcat::Button* violetButton;
+    bobcat::Button* violetButton1;
     bobcat::Button* customButton;
 
     COLOR color;
