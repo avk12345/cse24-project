@@ -3,8 +3,8 @@ DONE    5 points: eraser tool (delete shape/scribble), but it is recommended to 
 DONE    5 points: clear screen tool (delete all shapes/scribbles)
         10 points: RGB color picker
 DONE    10 points: 4 shape tools
-DONE    10 points: selector tool (ability to select a shape/scribble by clicking on it)
-        10 points: ability to resize selected shape
+DONE    10 points: selector tool (ability to select a shape/scribble by clicking on it
+DONE    10 points: ability to resize selected shape
 DONE    10 points: ability to change color of selected shape/scribble
 DONE    10 points: ability to move selected shape/scribble by dragging
 DONE    10 points: ability to bring selected shape/scribble to the front
