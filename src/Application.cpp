@@ -100,7 +100,6 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
 
 void Application::onColorSelectorChange(bobcat::Widget* sender) {
     Color color = colorSelector->getColor();
-
     if (selectedShape && tool == MOUSE) {
         cout << "Update selected shape color" << endl;
         selectedShape->setColor(color.getR(), color.getG(), color.getB());

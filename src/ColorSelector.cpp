@@ -1,4 +1,5 @@
 #include "ColorSelector.h"
+#include "Enums.h"
 #include <FL/Enumerations.H>
 #include <bobcat_ui/bobcat_ui.h>
 
@@ -45,12 +46,8 @@ void ColorSelector::visualizeSelectedColor() {
             customButton->label("@+5square");
             customButton->color(fl_rgb_color(red->value(), green->value(), blue->value()));
         }
-        else if(red->empty() && green->empty() && blue->empty()) {
-            customButton->label("@+5square");
-            red->value(0);
-            green->value(0);
-            blue->value(0);
-            customButton->color(fl_rgb_color(red->value(), green->value(), blue->value()));
+        else {
+            redButton->label("@+5square");
         }
     }
 }
@@ -80,7 +77,15 @@ void ColorSelector::onClick(bobcat::Widget* sender) {
         color = VIOLET;
     }
     else if (sender == customButton) {
-        color = CUSTOM;
+        if (!red->empty() && !green->empty() && !blue->empty() &&
+        red->value()   >= 0 && red->value()   <= 255 &&
+        green->value() >= 0 && green->value() <= 255 &&
+        blue->value()  >= 0 && blue->value()  <= 255) {
+            color = CUSTOM;
+        }
+        else if (color == CUSTOM) {
+            color = RED;
+        }
     }
 
     if (onChangeCb) {
@@ -89,6 +94,22 @@ void ColorSelector::onClick(bobcat::Widget* sender) {
 
     visualizeSelectedColor();
     redraw();
+}
+
+void ColorSelector::onCustomColorInputChange(bobcat::Widget* sender) {
+    if ((!red->empty() && !green->empty() && !blue->empty())) {
+        if ((red->value() >= 0 && red->value() <= 255) && 
+        (green->value() >= 0 && green->value() <= 255) && (blue->value() >= 0 && blue->value() <= 255)) {
+            customButton->color(fl_rgb_color(red->value(), green->value(), blue->value()));
+        }
+        else {
+            customButton->color(FL_BACKGROUND_COLOR);
+            customButton->label("");
+        }
+    } else {
+        customButton->color(FL_BACKGROUND_COLOR);
+    }
+    customButton->redraw();
 }
 
 Color ColorSelector::getColor() const {
@@ -116,16 +137,11 @@ Color ColorSelector::getColor() const {
     else if (color == CUSTOM) {
         if((!red->empty() && !green->empty() && !blue->empty()) && ((red->value() >= 0 && red->value() <= 255) && 
         (green->value() >= 0 && green->value() <= 255) && (blue->value() >= 0 && blue->value() <= 255)))  {
-            customButton->color(fl_rgb_color(red->value(), green->value(), blue->value()));
             return Color(red->value() / 255.0, green->value() / 255.0, blue->value() / 255.0);
         }
         else {
-            red->value(0);
-            green->value(0);
-            blue->value(0);
-            return Color();
+            return Color(255/255.0, 0/255.0, 0/255.0);
         }
-        
     }
     else {
         return Color();
@@ -174,4 +190,8 @@ ColorSelector::ColorSelector(int x, int y, int w, int h) : Group(x, y, w, h) {
     red = new IntInput(x + 350, y, 50, 50, "");
     green = new IntInput(x + 400, y, 50, 50, "");
     blue = new IntInput(x + 450, y, 50, 50, "");
+
+    ON_CHANGE(red, ColorSelector::onCustomColorInputChange);
+    ON_CHANGE(green, ColorSelector::onCustomColorInputChange);
+    ON_CHANGE(blue, ColorSelector::onCustomColorInputChange);
 }
