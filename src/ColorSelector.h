@@ -26,6 +26,7 @@ class ColorSelector : public bobcat::Group {
     void deselectAllColors();
     void visualizeSelectedColor();
     void onClick(bobcat::Widget* sender);
+    void onCustomColorInputChange(bobcat::Widget* sender);
 
 public:
     ColorSelector(int x, int y, int w, int h);
