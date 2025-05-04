@@ -78,8 +78,11 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->undo();
         canvas->redraw();
     } if (tool == PUSHFRONT && selectedShape) {
-        cout << "change shape pos" << endl;
         canvas->bringToFront(selectedShape);
+        canvas->redraw();
+    }
+    if (tool == PUSHBACK && selectedShape) {
+        canvas->pushToBack(selectedShape);
         canvas->redraw();
     }
     if((action == DECREASE || action == INCREASE) && selectedShape) {
