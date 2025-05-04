@@ -1,5 +1,5 @@
 DONE    10 points: paint brush tool (draw points as a scribble while mouse is down)     
-DONE    5 points: eraser tool (delete shape/scribble)                                   
+DONE    5 points: eraser tool (delete shape/scribble), but it is recommended to revisit this feature as we might need to do it by actually deleting the shape or scribble rather than just painting white over the object.                              
 DONE    5 points: clear screen tool (delete all shapes/scribbles)
         10 points: RGB color picker
 DONE    10 points: 4 shape tools
