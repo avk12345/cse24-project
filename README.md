@@ -7,8 +7,8 @@ DONE    10 points: selector tool (ability to select a shape/scribble by clicking
         10 points: ability to resize selected shape
 DONE    10 points: ability to change color of selected shape/scribble
 DONE    10 points: ability to move selected shape/scribble by dragging
-        10 points: ability to bring selected shape/scribble to the front
-        10 points: ability to send selected shape/scribble to the back
+DONE    10 points: ability to bring selected shape/scribble to the front
+DONE    10 points: ability to send selected shape/scribble to the back
 
         To Do:
 
