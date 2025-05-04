@@ -47,7 +47,8 @@ void ColorSelector::visualizeSelectedColor() {
             customButton->color(fl_rgb_color(red->value(), green->value(), blue->value()));
         }
         else {
-            redButton->label("@+5square");
+            customButton->label("");
+            customButton->color(FL_BACKGROUND_COLOR);
         }
     }
 }
@@ -102,15 +103,16 @@ void ColorSelector::onCustomColorInputChange(bobcat::Widget* sender) {
         if ((red->value() >= 0 && red->value() <= 255) && 
         (green->value() >= 0 && green->value() <= 255) && (blue->value() >= 0 && blue->value() <= 255)) {
             customButton->color(fl_rgb_color(red->value(), green->value(), blue->value()));
+            if (color == CUSTOM) {
+                customButton->label("@+5square");
+            }
         }
         else {
             customButton->color(FL_BACKGROUND_COLOR);
             customButton->label("");
         }
-    } else {
-        customButton->color(FL_BACKGROUND_COLOR);
+        customButton->redraw();
     }
-    customButton->redraw();
 }
 
 Color ColorSelector::getColor() const {
