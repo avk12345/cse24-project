@@ -85,6 +85,7 @@ void ColorSelector::onClick(bobcat::Widget* sender) {
         }
         else if (color == CUSTOM) {
             color = RED;
+            showMessage("Invalid RGB values were provided, defaulting to the color red.");
         }
     }
 

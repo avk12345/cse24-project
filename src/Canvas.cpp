@@ -81,7 +81,7 @@ void Canvas::endScribble() {
 
 void Canvas::bringToFront(Shape *shape) {
   Shape *curr = shape;
-  for (int i = 0; i < shapes.size(); i++) {
+  for (unsigned int i = 0; i < shapes.size(); i++) {
     if (shapes[i] == shape) {
       shapes.erase(shapes.begin() + i);
       cout << "sent shape " << i << " front" << endl;
@@ -92,7 +92,7 @@ void Canvas::bringToFront(Shape *shape) {
 
 void Canvas::pushToBack(Shape *shape) {
   Shape *curr = shape;
-  for (int i = 0; i < shapes.size(); i++) {
+  for (unsigned int i = 0; i < shapes.size(); i++) {
     if (shapes[i] == shape) {
       shapes.erase(shapes.begin() + i);
       cout << "sent shape " << i << " back" << endl;
