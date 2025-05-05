@@ -76,20 +76,22 @@ string Scribble::getSelectedShape() {
 }
 
 void Scribble::changeSize(float changeNum) {
-    if ((points[0]->getSize() < 1.1) && (changeNum < 0)) {
+    if ((points[1]->getSize() - 2 < 3) && (changeNum < 0)) {
         cout << "Scribble is at minimum size" << endl;
         return;
     }
-    float accommodatedSizeChangeSpecificallyForPoints;
-    if (changeNum > 0) {
-        accommodatedSizeChangeSpecificallyForPoints = 2;
+    else {
+        float accommodatedSizeChangeSpecificallyForPoints;
+        if (changeNum > 0) {
+            accommodatedSizeChangeSpecificallyForPoints = 2;
+        }
+        if (changeNum < 0) {
+            accommodatedSizeChangeSpecificallyForPoints = -2;
+        }
+        for (unsigned int i = 0; i < points.size(); i++) {
+            points[i]->changeSize(accommodatedSizeChangeSpecificallyForPoints);
+        }
+        draw();
+        return;
     }
-    if (changeNum < 0) {
-        accommodatedSizeChangeSpecificallyForPoints = -2;
-    }
-    for (unsigned int i = 0; i < points.size(); i++) {
-        points[i]->changeSize(accommodatedSizeChangeSpecificallyForPoints);
-    }
-    draw();
-    return;
 }
