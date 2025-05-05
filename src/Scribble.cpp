@@ -68,5 +68,16 @@ string Scribble::getSelectedShape() {
 }
 
 void Scribble::changeSize(float changeNum) {
+    float accommodatedSizeChangeSpecificallyForPoints;
+    if (changeNum > 0) {
+        accommodatedSizeChangeSpecificallyForPoints = 2;
+    }
+    if (changeNum < 0) {
+        accommodatedSizeChangeSpecificallyForPoints = -2;
+    }
+    for (unsigned int i = 0; i < points.size(); i++) {
+        points[i]->changeSize(accommodatedSizeChangeSpecificallyForPoints);
+    }
+    draw();
     return;
 }

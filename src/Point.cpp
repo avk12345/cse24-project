@@ -64,6 +64,6 @@ string Point::getSelectedShape() {
 }
 
 void Point::changeSize(float changeNum) {
-    size += changeNum;\
+    size += changeNum;
     draw();
 }

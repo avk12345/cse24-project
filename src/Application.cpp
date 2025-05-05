@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "Enums.h"
+#include "Scribble.h"
 #include <bobcat_ui/bobcat_ui.h>
 #include <cstddef>
 #include <sys/select.h>
