@@ -31,12 +31,6 @@ bool Rectangle::contains(float mx, float my) {
     return false;
 }
 
-void Rectangle::setColor(float r, float g, float b) {
-    this->r = r;
-    this->g = g;
-    this->b = b;
-}
-
 string Rectangle::getSelectedShape() {
     return "Rectangle";
 }

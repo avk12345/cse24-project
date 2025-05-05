@@ -34,12 +34,6 @@ bool Circle::contains(float mx, float my) {
     return false;
 }
 
-void Circle::setColor(float r, float g, float b) {
-    this->r = r;
-    this->g = g;
-    this->b = b;
-}
-
 string Circle::getSelectedShape() {
     return "Circle";
 }

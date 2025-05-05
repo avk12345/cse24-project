@@ -14,8 +14,6 @@ public:
     Circle(float x, float y, float radius, float r, float g, float b);
     void draw();
     bool contains(float mx, float my);
-    void setColor(float r, float g, float b);
-
     string getSelectedShape();
 
     void changeSize(float changeNum);

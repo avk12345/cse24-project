@@ -16,10 +16,7 @@ public:
     void draw();
     bool contains(float mx, float my);
     friend struct AppTest;
-
     string getSelectedShape();
-    void setColor(float r, float g, float b);
-
     void changeSize(float changeNum);
 };
 
