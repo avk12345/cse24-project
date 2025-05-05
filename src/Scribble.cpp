@@ -63,8 +63,12 @@ void Scribble::setColor(float r, float g, float b) {
     return;
 }
 
-void Scribble::setPosition(float mx, float my) {
-    
+void Scribble::setPosition(float mx, float my, float originalMX, float originalMY) {
+    float changeInX = mx - originalMX;
+    float changeInY = my - originalMY;
+    for (unsigned int i = 0; i < points.size(); i++) {
+        points[i]->setPosition(changeInX, changeInY, 0, 0);
+    }
 }
 
 string Scribble::getSelectedShape() {

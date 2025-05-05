@@ -19,7 +19,7 @@ public:
 
     bool contains(float mx, float my);
     void setColor(float r, float g, float b);
-    void setPosition(float mx, float my);
+    void setPosition(float mx, float my, float originalMX, float originalMY);
     string getSelectedShape();
 
     ~Scribble();

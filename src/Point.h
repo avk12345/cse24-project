@@ -28,6 +28,7 @@ public:
     string getSelectedShape();
 
     void changeSize(float changeNum);
+    void setPosition(float mx, float my, float originalMX, float originalMY);;
 };
 
 #endif

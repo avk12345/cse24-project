@@ -67,3 +67,8 @@ void Point::changeSize(float changeNum) {
     size += changeNum;
     draw();
 }
+
+void Point::setPosition(float mx, float my, float originalMX, float originalMY) {
+    this->x += mx;
+    this->y += my;
+}

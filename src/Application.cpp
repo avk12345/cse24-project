@@ -11,6 +11,8 @@ using namespace std;
 void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) {
     tool = toolbar->getTool();
     Color color = colorSelector->getColor();
+    originalMX = mx;
+    originalMY = my;
 
     if (tool == PENCIL) {
         canvas->startScribble();
@@ -68,9 +70,11 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
     */
     else if (tool == MOUSE) {
         if (selectedShape != nullptr) {
-            selectedShape->setPosition(mx, my);
+            selectedShape->setPosition(mx, my, originalMX, originalMY);
             canvas->redraw();
         }
+        originalMX = mx;
+        originalMY = my;
     }
 }
 

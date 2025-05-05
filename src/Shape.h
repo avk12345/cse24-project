@@ -29,7 +29,7 @@ public:
         this->b = b; 
     }
 
-    virtual void setPosition(float mx, float my) {
+    virtual void setPosition(float mx, float my, float originalMX, float originalMY) {
         this->x = mx;
         this->y = my;
     }
