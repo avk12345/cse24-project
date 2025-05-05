@@ -39,6 +39,10 @@ string Circle::getSelectedShape() {
 }
 
 void Circle::changeSize(float changeNum) {
+    if ((radius <= 0.1) && (changeNum < 0)) {
+        cout<< "Circle is at minimum size" << endl;
+        return;
+    }
     radius += changeNum;
     draw();
 }
