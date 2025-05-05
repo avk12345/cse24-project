@@ -76,7 +76,9 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
 void Application::onToolbarChange(bobcat::Widget* sender) {
     ACTION action = toolbar->getAction();
     TOOL tool = toolbar->getTool();
-
+    if (tool != MOUSE) {
+        selectedShape = nullptr;
+    }
     if (action == CLEAR) {
         canvas->clear();
         canvas->redraw();
@@ -84,11 +86,11 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     if (action == UNDO) {
         canvas->undo();
         canvas->redraw();
-    } if (tool == PUSHFRONT && selectedShape) {
+    } if ((action == PUSHFRONT) && selectedShape) {
         canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
-    if (tool == PUSHBACK && selectedShape) {
+    if ((action == PUSHBACK) && selectedShape) {
         canvas->pushToBack(selectedShape);
         canvas->redraw();
     }
@@ -105,7 +107,6 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->redraw();
     }
     
-    selectedShape = nullptr;
 }
 
 void Application::onColorSelectorChange(bobcat::Widget* sender) {
@@ -113,13 +114,6 @@ void Application::onColorSelectorChange(bobcat::Widget* sender) {
     if (selectedShape && tool == MOUSE) {
         cout << "Update selected shape color" << endl;
         selectedShape->setColor(color.getR(), color.getG(), color.getB());
-        canvas->redraw();
-    }
-}
-
-void Application::pushToFront(bobcat::Widget* sender) {
-    if (selectedShape && tool == PUSHFRONT) {
-        canvas->bringToFront(selectedShape);
         canvas->redraw();
     }
 }

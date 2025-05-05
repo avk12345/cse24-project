@@ -73,9 +73,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == mouseButton) {
         tool = MOUSE;
     } else if (sender == frontBackButton) {
-        tool = PUSHBACK;
+        action = PUSHBACK;
     } else if (sender == backFrontButton) {
-        tool = PUSHFRONT;
+        action = PUSHFRONT;
     }
     else if(sender == minusButton) {
         action = DECREASE;
