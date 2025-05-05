@@ -37,6 +37,8 @@ public:
 
     void startScribble();
 
+    void eraseObject(Shape* target);
+
     void updateScribble(float x, float y, float r, float g, float b, int size);
 
     void endScribble();

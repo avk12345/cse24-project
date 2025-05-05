@@ -105,6 +105,17 @@ void Canvas::moveShape() {
   //
 }
 
+void Canvas::eraseObject(Shape* target) {
+    for (unsigned int i = 0; i < shapes.size(); ++i) {
+        if (shapes[i] == target) {
+            delete shapes[i];
+            shapes.erase(shapes.begin() + i);
+            std::cout << "erased shape " << i << "\n";
+            return;
+        }
+    }
+}
+
 void Canvas::changeSize(Shape *selectedShape, float changeNum) {
   cout << "Size being changed" << endl;
 

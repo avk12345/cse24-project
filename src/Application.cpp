@@ -17,8 +17,14 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float mx, float my) 
         canvas->redraw();
     }
     else if (tool == ERASER) {
-        canvas->startScribble();
-        canvas->updateScribble(mx, my, 1, 1, 1, 14);
+        Shape* toErase = canvas->getSelectedShape(mx, my);
+        if (toErase) {
+            canvas->eraseObject(toErase);
+            selectedShape = nullptr;
+            canvas->redraw();
+        }
+        //canvas->startScribble();
+        //canvas->updateScribble(mx, my, 1, 1, 1, 14);
         canvas->redraw();
     }
     else if (tool == CIRCLE) {
@@ -54,10 +60,11 @@ void Application::onCanvasDrag(bobcat::Widget* sender, float mx, float my) {
         canvas->updateScribble(mx, my, color.getR(), color.getG(), color.getB(), 7);
         canvas->redraw();
     }
-    else if (tool == ERASER) {
+    /*else if (tool == ERASER) {
         canvas->updateScribble(mx, my, 1.0, 1.0, 1.0, 14);
         canvas->redraw();
     }
+    */
     else if (tool == MOUSE) {
         if (selectedShape != nullptr) {
             selectedShape->setPosition(mx, my);
