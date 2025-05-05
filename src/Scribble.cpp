@@ -1,5 +1,6 @@
 #include "Scribble.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -21,10 +22,28 @@ Scribble::~Scribble(){
 }
 
 bool Scribble::contains(float mx, float my) {
-    for (unsigned int i = 0; i < points.size(); i++) {
-        if (points[i]->contains(mx, mx)) {
-            return true;
+    float topLeftCornerX = points[0]->getX();
+    float topLeftCornerY = points[0]->getY();
+    float bottomRightCornerX = points[0]->getX();
+    float bottomRightCornerY = points[0]->getY();
+    for (unsigned int i = 1; i < points.size(); i++) {
+        if (points[i]->getX() < topLeftCornerX) {
+            topLeftCornerX = points[i]->getX();
         }
+        if (points[i]->getY() > topLeftCornerY) {
+            topLeftCornerY = points[i]->getY();
+        }
+        if (points[i]->getX() > bottomRightCornerX) {
+            bottomRightCornerX = points[i]->getX();
+        }
+        if (points[i]->getY() < bottomRightCornerY) {
+            bottomRightCornerY = points[i]->getY();
+        }
+    }
+    cout << "Bounds found for Scribble.  Top left corner is (" << topLeftCornerX << ", " << topLeftCornerY << ") and bottom right corner is (" << bottomRightCornerX << ", " << bottomRightCornerY << ")" << endl;
+    cout << "Clicked at mx: " << mx << ", my: " << my << endl;
+    if (mx >= topLeftCornerX && mx <= bottomRightCornerX && my <= topLeftCornerY && my >= bottomRightCornerY) {
+        return true;
     }
     return false;
 }

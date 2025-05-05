@@ -56,9 +56,6 @@ int Point::getSize() const {
 }
 
 bool Point::contains(float mx, float my) {
-    // if (mx >= this->x - 0.2 && mx <= this->x + 0.2 && my <= this->y + 0.2 && my >= this->y - 0.2) {
-    //     return true;
-    // }
     return false;
 }
 
