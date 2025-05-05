@@ -63,6 +63,10 @@ void Scribble::setColor(float r, float g, float b) {
     return;
 }
 
+void Scribble::setPosition(float mx, float my) {
+    
+}
+
 string Scribble::getSelectedShape() {
     return "Scribble";
 }
