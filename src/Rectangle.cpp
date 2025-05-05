@@ -1,6 +1,10 @@
 #include "Rectangle.h"
 #include <GL/freeglut.h>
 #include <string>
+#include <iostream>
+
+
+using namespace std;
 
 Rectangle::Rectangle() : Shape() {
     width = 0.4;
@@ -36,6 +40,10 @@ string Rectangle::getSelectedShape() {
 }
 
 void Rectangle::changeSize(float changeNum) {
+    if ((width <= 0.1 && height <= 0.1) && (changeNum < 0)) {
+        cout << "Rectangle is at minimum size" << endl;
+        return;
+    }
     width += changeNum;
     height += changeNum;
     draw();

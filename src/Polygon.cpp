@@ -1,6 +1,9 @@
 #include "Polygon.h"
 #include <GL/freeglut.h>
 #include <cmath>
+#include <iostream>
+
+using namespace std;
 
 Polygon::Polygon() : Shape() {
     sides = 5;
@@ -37,6 +40,10 @@ string Polygon::getSelectedShape() {
 }
 
 void Polygon::changeSize(float changeNum) {
+    if ((length <= 0.1) && (changeNum < 0)) {
+        cout << "Polygon is at minimum size" << endl;
+        return;
+    }
     length += changeNum;
     draw();
 }

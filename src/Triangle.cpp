@@ -1,5 +1,8 @@
 #include "Triangle.h"
 #include <GL/freeglut.h>
+#include <iostream>
+
+using namespace std;
 
 Triangle::Triangle() : Shape() {
     base = 0.2;
@@ -35,6 +38,10 @@ string Triangle::getSelectedShape() {
 }
 
 void Triangle::changeSize(float changeNum) {
+    if ((base <= 0.1 && height <= 0.1) && (changeNum < 0)) {
+        cout << "Triangle is at minimum size" << endl;
+        return;
+    }
     base += changeNum;
     height += changeNum;
     draw();
