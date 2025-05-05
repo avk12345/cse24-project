@@ -3,18 +3,11 @@ DONE    5 points: eraser tool (delete shape/scribble), but it is recommended to 
 DONE    5 points: clear screen tool (delete all shapes/scribbles)
 DONE    10 points: RGB color picker
 DONE    10 points: 4 shape tools
-Partially done, will need to account for single point scribbles    10 points: selector tool ability to select a shape/scribble by clicking on it
+DONE    10 points: selector tool ability to select a shape/scribble by clicking on it
 DONE    10 points: ability to resize selected shape
 DONE    10 points: ability to change color of selected shape/scribble
 DONE    10 points: ability to move selected shape/scribble by dragging
 DONE    10 points: ability to bring selected shape/scribble to the front
 DONE    10 points: ability to send selected shape/scribble to the back
 
-        To Do:
-
-        
-
-        Anish - Will soon begin working on the custom rgb color picker.
-        Rithvik - Changing shape size
-        Eric - Working on contains function for scribbles
-        Raj - Send selected shape to front or back
+Finished with requirements, maybe polish on some visual changes.
