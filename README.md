@@ -23,4 +23,4 @@ An interactive drawing application developed in C++ using OpenGL and FreeGLUT at
 4. Undo or clear actions as needed  
 
 ## About
-Interactive C++ drawing application leveraging OpenGL and FreeGLUT for rendering and user interaction. Developed at UC Merced as a course project, emphasizing object-oriented design, event handling, and GUI programming in C++.
+Interactive C++ drawing application leveraging OpenGL for rendering and user interaction. Developed collaboratively with four contributors at UC Merced as a course project, emphasizing object-oriented design, memory management, event handling, and GUI programming.
